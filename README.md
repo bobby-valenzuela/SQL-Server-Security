@@ -1,2 +1,2 @@
-# SQL-Study
-A collection of exercises and good-to-know queries
+# SQL Server-Study and queries
+A collection of security-related queries
