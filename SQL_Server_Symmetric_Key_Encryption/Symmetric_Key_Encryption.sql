@@ -8,8 +8,13 @@ CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'super_pass';
 -- 2. Verify mkey exists
  SELECT * FROM sys.symmetric_keys
 
--- 3. Create Certificate
+-- 3. Create Certificate (if you've just created a masterkey)
  CREATE CERTIFICATE ATestCertificate WITH SUBJECT = 'A Test Certificate';
+
+-- 3. Create Certificate (using existing master key)
+open master key decryption by password = 'MyTest!Mast3rP4ss';
+	CREATE CERTIFICATE ATestCertificate WITH SUBJECT = 'A Test Certificate';
+close master key;
 
 -- 4. Verify certificate exists
  SELECT * FROM  sys.certificates
